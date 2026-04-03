@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="ko"><head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>BRONCS BRIEFING</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Source+Sans+3:wght@300;400;500&family=Source+Code+Pro:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#f7f4ef;--paper:#fdfcfa;--ink:#1a1814;--ink2:#3d3a34;--mu:#8a8578;--ru:#ddd9d0;--ac:#c4410c;--a2:#1a5c3a;--a3:#1a3a5c;}
+*{margin:0;padding:0;box-sizing:border-box;} body{background:var(--bg);color:var(--ink);font-family:'Source Sans 3',sans-serif;font-weight:300;min-height:100vh;}
+a{color:inherit;text-decoration:none;}
+.tb{background:var(--ink);padding:11px 40px;display:flex;justify-content:space-between;font-family:'Source Code Pro',monospace;font-size:11px;color:#6b6860;letter-spacing:2px;}
+.mh{border-bottom:3px solid var(--ink);padding:44px 40px 28px;max-width:960px;margin:0 auto;}
+h1{font-family:'Playfair Display',serif;font-size:clamp(52px,9vw,100px);font-weight:900;letter-spacing:-2px;line-height:.92;margin-bottom:18px;}
+h1 span{color:var(--ac);}
+.ms{display:flex;justify-content:space-between;align-items:flex-end;flex-wrap:wrap;gap:10px;}
+.md{font-size:14px;color:var(--mu);line-height:1.7;}
+.td{font-family:'Source Code Pro',monospace;font-size:12px;color:var(--mu);letter-spacing:2px;text-align:right;}
+.stats{max-width:960px;margin:0 auto;padding:16px 40px;display:flex;gap:28px;border-bottom:1px solid var(--ru);flex-wrap:wrap;}
+.stat{display:flex;flex-direction:column;gap:2px;}
+.sv{font-family:'Playfair Display',serif;font-size:24px;font-weight:700;}
+.sk{font-family:'Source Code Pro',monospace;font-size:10px;letter-spacing:2px;color:var(--mu);}
+.flt{max-width:960px;margin:0 auto;padding:14px 40px;display:flex;gap:6px;border-bottom:1px solid var(--ru);flex-wrap:wrap;}
+.fb{font-family:'Source Code Pro',monospace;font-size:11px;letter-spacing:2px;text-transform:uppercase;padding:7px 14px;border:1px solid var(--ru);background:var(--paper);color:var(--mu);cursor:pointer;border-radius:2px;transition:all .15s;}
+.fb:hover,.fb.active{background:var(--ink);color:var(--bg);border-color:var(--ink);}
+.fb.semi.active{background:var(--ac);border-color:var(--ac);}
+.fb.ai.active{background:var(--a2);border-color:var(--a2);}
+.fb.stock.active{background:var(--a3);border-color:var(--a3);}
+.main{max-width:960px;margin:0 auto;padding:26px 40px 80px;}
+.dg{margin-bottom:40px;}
+.dh{display:flex;align-items:center;gap:14px;margin-bottom:16px;}
+.dht{font-family:'Playfair Display',serif;font-size:19px;font-weight:600;}
+.dhl{flex:1;height:1px;background:var(--ru);}
+.dhc{font-family:'Source Code Pro',monospace;font-size:11px;color:var(--mu);}
+.cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(255px,1fr));gap:14px;}
+.card{background:var(--paper);border:1px solid var(--ru);border-radius:2px;padding:20px;display:flex;flex-direction:column;gap:9px;transition:all .15s;position:relative;overflow:hidden;}
+.card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:var(--ac);transform:scaleX(0);transform-origin:left;transition:transform .2s;}
+.card.ai::before{background:var(--a2);} .card.stock::before{background:var(--a3);}
+.card:hover{box-shadow:0 4px 20px rgba(0,0,0,.08);transform:translateY(-2px);}
+.card:hover::before{transform:scaleX(1);}
+.cc{display:flex;align-items:center;gap:7px;font-family:'Source Code Pro',monospace;font-size:10px;letter-spacing:3px;text-transform:uppercase;color:var(--mu);}
+.cd{width:6px;height:6px;border-radius:50%;background:var(--ac);}
+.cd.ai{background:var(--a2);} .cd.stock{background:var(--a3);}
+.ct{font-family:'Playfair Display',serif;font-size:16px;font-weight:600;line-height:1.4;color:var(--ink);}
+.cs{font-size:13px;color:var(--mu);line-height:1.6;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;}
+.cf{display:flex;justify-content:space-between;align-items:center;margin-top:auto;padding-top:9px;border-top:1px solid var(--ru);font-family:'Source Code Pro',monospace;font-size:11px;color:var(--mu);}
+.ca{color:var(--ac);font-size:14px;} .card.ai .ca{color:var(--a2);} .card.stock .ca{color:var(--a3);}
+.empty{text-align:center;padding:80px 20px;color:var(--mu);}
+footer{background:var(--ink);color:#6b6860;padding:18px 40px;font-family:'Source Code Pro',monospace;font-size:11px;letter-spacing:1px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px;}
+@media(max-width:600px){.mh,.main,.flt,.stats{padding-left:18px;padding-right:18px;}.tb{padding:10px 18px;}h1{letter-spacing:-1px;}footer{padding:14px 18px;}}
+</style></head><body>
+<div class="tb"><span>BRONCS BRIEFING SYSTEM</span><span id="ct">--:--:--</span></div>
+<div class="mh">
+  <h1>DAILY<br>BRIEF<span>.</span></h1>
+  <div class="ms"><div class="md">반도체 · AI/LLM · 한국/미국 주식<br>매일 7AM 자동 수집 브리핑</div><div class="td" id="td">--</div></div>
+</div>
+<div class="stats">
+  <div class="stat"><div class="sv" id="tc">0</div><div class="sk">총 브리핑</div></div>
+  <div class="stat"><div class="sv" id="sc" style="color:var(--ac)">0</div><div class="sk" style="color:var(--ac)">반도체</div></div>
+  <div class="stat"><div class="sv" id="ac2" style="color:var(--a2)">0</div><div class="sk" style="color:var(--a2)">AI/LLM</div></div>
+  <div class="stat"><div class="sv" id="stc" style="color:var(--a3)">0</div><div class="sk" style="color:var(--a3)">주식</div></div>
+</div>
+<div class="flt">
+  <button class="fb active" onclick="flt('all',this)">ALL</button>
+  <button class="fb semi" onclick="flt('semi',this)">반도체</button>
+  <button class="fb ai" onclick="flt('ai',this)">AI / LLM</button>
+  <button class="fb stock" onclick="flt('stock',this)">주식</button>
+</div>
+<div class="main" id="main"></div>
+<footer><span>BRONCS BRIEFING · AUTO-GENERATED</span><span>OpenClaw + GitHub Pages</span></footer>
+<script>
+const DATA=[
+  {
+    "id": "2026-04-03_semi",
+    "date": "2026-04-03",
+    "time": "15:46",
+    "category": "semi",
+    "title": "반도체 브리핑 — 2026년 04월 03일",
+    "summary": "HBM4 공급 경쟁 본격화",
+    "file": "./2026-04-03_semi.html"
+  }
+];
+const CAT={semi:'반도체',ai:'AI / LLM',stock:'주식·시장'};
+function tick(){
+  const n=new Date();
+  document.getElementById('ct').textContent=n.toLocaleTimeString('ko-KR',{hour12:false});
+  document.getElementById('td').textContent=n.toLocaleDateString('ko-KR',{year:'numeric',month:'long',day:'numeric',weekday:'long'});
+}
+tick();setInterval(tick,1000);
+function stats(){
+  document.getElementById('tc').textContent=DATA.length;
+  document.getElementById('sc').textContent=DATA.filter(b=>b.category==='semi').length;
+  document.getElementById('ac2').textContent=DATA.filter(b=>b.category==='ai').length;
+  document.getElementById('stc').textContent=DATA.filter(b=>b.category==='stock').length;
+}
+function render(data){
+  const m=document.getElementById('main');
+  if(!data.length){m.innerHTML='<div class="empty"><p>브리핑이 없습니다.</p></div>';return;}
+  const g={};data.forEach(b=>{if(!g[b.date])g[b.date]=[];g[b.date].push(b);});
+  m.innerHTML=Object.keys(g).sort().reverse().map(date=>{
+    const items=g[date];
+    const dl=new Date(date+'T00:00:00').toLocaleDateString('ko-KR',{year:'numeric',month:'long',day:'numeric',weekday:'long'});
+    return `<div class="dg"><div class="dh"><div class="dht">${dl}</div><div class="dhl"></div><div class="dhc">${items.length}건</div></div>
+    <div class="cards">${items.map(b=>`<a class="card ${b.category}" href="${b.file}">
+      <div class="cc"><div class="cd ${b.category}"></div>${CAT[b.category]||b.category}</div>
+      <div class="ct">${b.title}</div><div class="cs">${b.summary}</div>
+      <div class="cf"><span>⏰ ${b.time}</span><span class="ca">→</span></div>
+    </a>`).join('')}</div></div>`;
+  }).join('');
+}
+function flt(cat,btn){
+  document.querySelectorAll('.fb').forEach(b=>b.classList.remove('active'));
+  btn.classList.add('active');
+  render(cat==='all'?DATA:DATA.filter(b=>b.category===cat));
+}
+stats();render(DATA);
+</script></body></html>
