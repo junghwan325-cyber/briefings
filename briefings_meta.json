@@ -9,6 +9,15 @@
     "file": "./2026-04-07_weather.html"
   },
   {
+    "id": "2026-04-07_schedule",
+    "date": "2026-04-07",
+    "time": "06:30",
+    "category": "schedule",
+    "title": "일정 브리핑 — 2026년 04월 07일",
+    "summary": "3일 일정 2건",
+    "file": "./2026-04-07_schedule.html"
+  },
+  {
     "id": "2026-04-06_world_2253",
     "date": "2026-04-06",
     "time": "22:53",
