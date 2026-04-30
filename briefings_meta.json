@@ -9,15 +9,6 @@
     "file": "./2026-05-01_weather.html"
   },
   {
-    "id": "2026-05-01_schedule",
-    "date": "2026-05-01",
-    "time": "06:30",
-    "category": "schedule",
-    "title": "일정 브리핑 — 2026년 05월 01일",
-    "summary": "3일 일정 6건",
-    "file": "./2026-05-01_schedule.html"
-  },
-  {
     "id": "2026-05-01_tasks",
     "date": "2026-05-01",
     "time": "06:30",
@@ -25,6 +16,15 @@
     "title": "할일 브리핑 — 2026년 05월 01일",
     "summary": "오늘 마감 0건 · 미완료 전체 2건",
     "file": "./2026-05-01_tasks.html"
+  },
+  {
+    "id": "2026-05-01_schedule",
+    "date": "2026-05-01",
+    "time": "06:30",
+    "category": "schedule",
+    "title": "일정 브리핑 — 2026년 05월 01일",
+    "summary": "3일 일정 6건",
+    "file": "./2026-05-01_schedule.html"
   },
   {
     "id": "2026-04-30_world",
