@@ -9,6 +9,15 @@
     "file": "./2026-05-02_weather.html"
   },
   {
+    "id": "2026-05-02_schedule",
+    "date": "2026-05-02",
+    "time": "06:31",
+    "category": "schedule",
+    "title": "일정 브리핑 — 2026년 05월 02일",
+    "summary": "3일 일정 4건",
+    "file": "./2026-05-02_schedule.html"
+  },
+  {
     "id": "2026-05-01_world",
     "date": "2026-05-01",
     "time": "06:34",
