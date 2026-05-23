@@ -9,6 +9,15 @@
     "file": "./2026-05-24_weather.html"
   },
   {
+    "id": "2026-05-24_schedule",
+    "date": "2026-05-24",
+    "time": "06:30",
+    "category": "schedule",
+    "title": "일정 브리핑 — 2026년 05월 24일",
+    "summary": "3일 일정 4건",
+    "file": "./2026-05-24_schedule.html"
+  },
+  {
     "id": "2026-05-23_world",
     "date": "2026-05-23",
     "time": "06:34",
