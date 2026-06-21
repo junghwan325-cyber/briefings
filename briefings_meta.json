@@ -9,6 +9,15 @@
     "file": "./2026-06-22_weather.html"
   },
   {
+    "id": "2026-06-22_schedule",
+    "date": "2026-06-22",
+    "time": "06:30",
+    "category": "schedule",
+    "title": "일정 브리핑 — 2026년 06월 22일",
+    "summary": "3일 일정 4건",
+    "file": "./2026-06-22_schedule.html"
+  },
+  {
     "id": "2026-06-21_world",
     "date": "2026-06-21",
     "time": "06:33",
